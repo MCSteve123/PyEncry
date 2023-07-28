@@ -8,7 +8,7 @@
 
    操作方式：GUI
    语言：Python
-   版本：v1.2.2
+   版本：v1.3
 
    注：此工具仅可在有人监听但无法修改的前提下运作（如微信群）
    作者：MCSteve123/根号谈(GitHub/Bilibili)               """
@@ -20,7 +20,7 @@ from random import randint
 
 
 """版本号"""
-version = '1.2.2'
+version = '1.3'
 module_version = module_version  # 注：这个module_version是module.py里的
 
 
@@ -46,7 +46,7 @@ key = randint(10000000, 99999999)
 the_key = str(key) + ' ' + str(hash(str(key))) + ' ' + version + ' ' + module_version
 
 
-"""五个函数（由于不知名原因，一行的代码也只能做成函数）"""
+"""五个函数（由于不知名原因（似乎是Tk的问题），一行的代码也只能做成函数）"""
 def enc():
     """加密函数"""
 
