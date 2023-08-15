@@ -49,7 +49,7 @@ _如果显示了“警告”，请看此处：[为什么点击解密按钮会产
 ## 历史版本
 [Release1.0版本](https://github.com/MCSteve123/PyEncry/releases/tag/Release1.0)<br>
 [Release1.1版本](https://github.com/MCSteve123/PyEncry/releases/tag/Release1.1)<br>
-[Release1.1版本](https://github.com/MCSteve123/PyEncry/releases/tag/Release1.2)
+[Release1.2版本](https://github.com/MCSteve123/PyEncry/releases/tag/Release1.2)
 <br>
 <br>
 
