@@ -1,33 +1,33 @@
 """一个可以抹去信息统计学特征的加密工具
 
    使用库/模块：
-       Encry_and_Decry   （自制）
+       module   （自制）
        tkinter
        random-randint
-       pyperclib         （需安装）
+       pyperclib-copy, paste         （需安装）
 
    操作方式：GUI
    语言：Python
-   版本：v1.3
+   版本：v1.4
 
    注：此工具仅可在有人监听但无法修改的前提下运作（如微信群）
    作者：MCSteve123/根号谈(GitHub/Bilibili)               """
 
 from module import *
 from tkinter import *
-from pyperclip import copy,paste
 from random import randint
+from pyperclip import copy,paste
 
 
 """版本号"""
-version = '1.3'
+version = '1.4'
 module_version = module_version  # 注：这个module_version是module.py里的
 
 
 """初始化GUI"""
 root = Tk()
 root['bg'] = 'white'
-root.title('对称加解密工具    工具版本：v' + version + '  模块库版本：v' + module_version + '  作者：根号谈')
+root.title('PyEncry    工具版本：v' + version + '  模块库版本：v' + module_version + '  作者：根号谈')
 root.geometry('550x450+150+150')
 
 
@@ -42,15 +42,15 @@ plain = StringVar()
 
 
 """定义随机密钥"""
-key = randint(10000000, 99999999)
-the_key = str(key) + ' ' + str(hash(str(key))) + ' ' + version + ' ' + module_version
+KEY = randint(10000000, 99999999)
+the_key = str(KEY) + ' ' + str(hash(str(KEY))) + ' ' + version + ' ' + module_version
 
 
 """五个函数（由于不知名原因（似乎是Tk的问题），一行的代码也只能做成函数）"""
 def enc():
     """加密函数"""
 
-    cipher.set(encry(plaintext.get(), key))
+    cipher.set(encry(plaintext.get(), KEY))
 
 def dec():
     """解密函数"""
@@ -89,25 +89,27 @@ def copy_key():
 
 
 """GUI"""
-Label(root, text='加密区：', fg='green', bg='white').place(x=0, y=0)
+Label(root, text='-------------------------------------------------  加密区  -------------------------------------------------', fg='green', bg='white').place(x=0, y=0)
 Entry(root, textvariable=plaintext, fg='blue', bg='white', width=75).place(x=0, y=25)
-Label(root, text='您的密钥:' + str(key), fg='SkyBlue', bg='white').place(x=250, y=53)
+Label(root, text='您的密钥:' + str(KEY), fg='SkyBlue', bg='white').place(x=220, y=53)
 Button(root,text='复制密钥（请务必点这里）',command=copy_key,fg='black',bg='white').place(x=333,y=50)
 Button(root, text='加密', fg='red', bg='white', command=enc).place(x=493, y=50)
 Label(root, text='密文：', fg='orange', bg='white').place(x=0, y=88)
 Entry(root, textvariable=cipher, fg='black', bg='white', width=75).place(x=0, y=110)
 Button(root, text='复制密文', fg='black', bg='white', command=copy_cipher).place(x=400, y=133)
 
-Label(root, text='解密区：', fg='green', bg='white').place(x=0, y=225)
+Label(root, text='-------------------------------------------------  解密区   -------------------------------------------------', fg='green', bg='white').place(x=0, y=225)
 Label(root,textvariable=warning,fg='red',bg='white').place(x=50,y=225)
 Entry(root, textvariable=ciphertext, fg='black', bg='white', width=75).place(x=0, y=250)
 Button(root,text='粘贴密文',command=paste_cipher,fg='black',bg='white').place(x=100,y=275)
-Label(root, text='对方密钥:', fg='SkyBlue', bg='white').place(x=250, y=278)
-Entry(root, textvariable=decry_key, fg='SkyBlue', bg='white', width=4).place(x=305, y=279)
+Label(root, text='对方密钥:', fg='SkyBlue', bg='white').place(x=215, y=279)
+Entry(root, textvariable=decry_key, fg='SkyBlue', bg='white', width=8).place(x=275, y=281)
 Button(root,text='粘贴密钥',command=paste_key,fg='black',bg='white').place(x=350,y=275)
 Button(root, text='解密', fg='red', bg='white', command=dec).place(x=450, y=275)
 Label(root, text='明文：', fg='orange', bg='white').place(x=0, y=313)
 Entry(root, textvariable=plain, fg='blue', bg='white', width=75).place(x=0, y=335)
+Label(root, text='在这里输入一串字符以标记通信者（不写也没事）-->', bg='white').place(x=110, y=398)
+Entry(root, bg='white', width=15).place(x=400, y=400)
 
 
 root.mainloop()  # 启动GUI
