@@ -27,7 +27,8 @@ _在加密前，您需要确保您执行了[发送密钥部分](#发送密钥)�
 _如果显示了“警告”，请看此处：[为什么点击解密按钮会产生警告？](#一)_<br>
 
 ### 示意图
-![示意图](<image/屏幕截图 2023-07-17 172555.jpg>)
+![示意图](<image.jpg>)
+注：v1.4的GUI更新并无实质作用，因此没有修改示意图版本
 <br>
 <br>
 
@@ -36,21 +37,19 @@ _如果显示了“警告”，请看此处：[为什么点击解密按钮会产
 （注意！工具和模块库版本号不一定相同，具体请看“适配说明”）
 
 ### 主程序
-#### 2023.7.19（v1.3）【适配模块库v1.2】
-1. 通过`module_version`变量直接调用模块库版本，不再使用`return_version()`函数 <br>
-2. 将密钥长度升为8位 <br>
-3. 修改了密钥核验，删除比较版本号新旧功能，直接比较版本号是否相同，防止非正式版报错<br>
+#### 2023.7.19（v1.4）【适配模块库v1.2】
+1. 将文件名更改为main.py以增加可读性
+2. 修改了部分GUI
+3. 添加了标记栏，无实质作用，用于标注与不同人交流的密钥（用于多人聊天，且如果你记性好也可以不写）
 
 ### 模块库
-#### 2023.7.14（v1.2）【适配工具v1.2.2、v1.3】
-1. 工具开始通过`module_version`变量直接调用模块库版本，不再使用`return_version()`函数 <br>
-<br>
-<br>
-
+#### 2023.7.14（v1.2）【适配工具v1.2.2、v1.3、v1.4】
+1. 工具通过`module_version`变量直接调用模块库版本，不再使用`return_version()`函数
 
 ## 历史版本
 [Release1.0版本](https://github.com/MCSteve123/PyEncry/releases/tag/Release1.0)<br>
-[Release1.1版本](https://github.com/MCSteve123/PyEncry/releases/tag/Release1.1)
+[Release1.1版本](https://github.com/MCSteve123/PyEncry/releases/tag/Release1.1)<br>
+[Release1.1版本](https://github.com/MCSteve123/PyEncry/releases/tag/Release1.2)
 <br>
 <br>
 
@@ -71,11 +70,16 @@ A:<br>
 Q:<br>
 为什么有些包和主程序的版本号是X.X，有些是X.X.X？<br>
 A:<br>
-1.如果版本号是X.X格式的，您使用的是Release版本，它比较稳定，代码会被打包，格式为“ReleaseX.X”，可直接在GitHub上的Release菜单中下载。我们更建议您使用此类版本。<br>
-2.如果是X.X.X格式的，您使用的是beta版本或snapshot版本，这些版本可能会有各种BUG，beta版也会打包，格式为“BetaX.X”，也可直接在GitHub上的Release菜单中下载。snapshot版本不打包，只在版本库里开放下载，更新后就无了。
+1.如果版本号是X.X格式的，使用的是Release版本，比较稳定，代码打包格式为“ReleaseX.X”，可直接在GitHub上的Release菜单中下载。更建议使用此类版本。<br>
+2.如果是X.X.X格式的，使用的是beta版本或snapshot版本，可能会有各种BUG，beta版打包格式为“BetaX.X”，也可直接在GitHub上的Release菜单中下载。snapshot版本不打包，只在版本库里开放，更新后就无了。
 
 ### 三、
 Q:<br>
 beta版本和snapshot版本有何区别？<br>
 A:<br>
-beta版本更新内容多，snapshot版本更新内容少。
+beta版本更新内容多，snapshot版本更新内容少。（就这点区别，别问我为啥，实在是没啥区别了...）
+
+## 关于作者
+[B站主页](https://space.bilibili.com/1098123879)<br>
+[GitHub主页](https://github.com/MCSteve123)<br>
+[GitHub仓库](https://github.com/MCSteve123/PyEncry)
