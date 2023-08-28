@@ -36,7 +36,6 @@ plaintext = StringVar()
 ciphertext = StringVar()
 decry_key = StringVar()
 warning = StringVar()
-warning.set('')
 cipher = StringVar()
 plain = StringVar()
 
