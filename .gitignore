@@ -1,0 +1,10 @@
+#无用的文件
+
+# cpython字节流
+__pycache__/
+# pyinstaller文件
+build/
+dist/
+main.spec
+# 可执行文件图标
+icon.ico
