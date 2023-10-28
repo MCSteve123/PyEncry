@@ -8,7 +8,7 @@
 
    操作方式：GUI
    语言：Python
-   版本：v1.5
+   版本：v1.6
 
    注：此工具仅可在有人监听但无法修改的前提下运作（如微信群）
    作者：MCSteve123/根号谈(GitHub/Bilibili)               """
@@ -19,15 +19,12 @@ from random import randint
 from pyperclip import copy,paste
 
 
-"""版本号"""
-version = '1.5'
-module_version = module_version  # 注：这个module_version是module.py里的
-
+VER = '1.6'
 
 """初始化GUI"""
 root = Tk()
 root['bg'] = 'white'
-root.title('PyEncry    工具版本：v' + version + '  模块库版本：v' + module_version + '  作者：根号谈')
+root.title('PyEncry    工具版本：v' + VER + '  模块库版本：v' + MODULE_VER + '  作者：根号谈')
 root.geometry('550x450+150+150')
 
 
@@ -42,7 +39,8 @@ plain = StringVar()
 
 """定义随机密钥"""
 KEY = randint(10000000, 99999999)
-THE_KEY = str(KEY) + ' ' + str(hash(str(KEY))) + ' ' + version + ' ' + module_version
+sha = sha256(str(KEY))
+THE_KEY = '%i %s %s %s' %(KEY,sha,VER,MODULE_VER)
 
 
 """五个函数（由于不知名原因（似乎是Tk的问题），一行的代码也只能做成函数）"""
@@ -60,14 +58,14 @@ def dec():
     if len(a) != 4:
         warning.set('警告：密钥验证失效，请重新索要密钥或检查对方工具是否低于v1.2、模块库低于v1.1')
         return
-    if len(a[1]) != 19 and len(a[1]) != 20:
-        warning.set('警告：密钥已损坏，请重新索要密钥')
+    if sha256(a[0]) != a[1]:
+        warning.set('警告：密钥损坏或被修改，请重新索要')
         return
-    if a[2] != version:
-        warning.set('警告：双方工具版本不同，请更换版本')
+    if a[2] != VER:
+        warning.set('警告：双方工具版本不同，请更换版本。您的版本：%s，对方版本：%s'%(VER, a[2]))
         return
-    if a[3] != module_version:
-        warning.set('警告：双方模块库版本不同，请更换版本')
+    if a[3] != MODULE_VER:
+        warning.set('警告：双方模块库版本不同，请更换版本。您的版本：%s，对方版本：%s'%(MODULE_VER, a[3]))
         return
     warning.set('')
 
