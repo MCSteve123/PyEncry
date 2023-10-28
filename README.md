@@ -1,12 +1,8 @@
 # Py加密工具（PyEncry）
 ## 介绍
-此工具是一个可以加密文本的Python程序，使用一个4位数字作为密钥，86个常用字符作为加密表。 <br>
-此工具会持续更新，令通信更加安全。 <br>
+此工具是一个可以加密文本的Python程序 <br>
 <br>
 （众求一个较快速的Python质数筛选器，这对以后的开发很有用，如果有的话请在issues里反馈一下！）
-<br>
-<br>
-
 
 ## 使用方法
 
@@ -36,21 +32,35 @@ _如果显示了“警告”，请看此处：[为什么点击解密按钮会产
 （注意！工具和模块库版本号不一定相同，具体请看“适配说明”）
 
 ### 主程序
-#### 2023.8.15（v1.5）【适配模块库v1.3.1】
-1. 由于在多窗口测试时发现一个未查明的问题，`hash()`核验密钥部分暂被删除了。但hash值依旧在密钥中保留，且如果没有此hash值，工具依旧会弹警告
-2. 修复了v1.4版本时未发现的问题：警告部分重叠于“解密区”文字之上。现已将警告部分移位至“解密区”文字的上方
+#### 2023.10.14（v1.6）【适配模块库v1.4】
+1. 查明了上一个版本的`hash()`函数问题，替换为sha256加密
 
 ### 模块库
-#### 2023.8.15（v1.3.1）（beta）【适配工具v1.5】
-1. 【重大更新】使用Unicode进行加密，获得了加密中文及其它字符的能力！
-2. 删除了`encry_replace`和`decry_replace`两个字符替换表<br>
-【另：这个版本完全可以当Release版本发的，但是这种大小的更新总得出点问题，还是发beta好了】
+#### 2023.10.14（v1.4）【适配工具v1.6】
+1. 完成了utf-8测试
+2. 添加了原先被移除的密文倒置
+3. 添加了sha256加密函数，名为`sha256()`。<br>
+    定义：
+    ```python
+    from hashlib import sha256 as sha
+
+    def sha256(text: str) -> str:
+        sh = sha()
+        sh.update(text.encode())
+        return sh.hexdigest()
+    ```
 
 ## 历史版本
+[所有版本列表](https://github.com/MCSteve123/PyEncry/releases)<br>
+### 版本
 [Release1.0版本](https://github.com/MCSteve123/PyEncry/releases/tag/Release1.0)<br>
 [Release1.1版本](https://github.com/MCSteve123/PyEncry/releases/tag/Release1.1)<br>
 [Release1.2版本](https://github.com/MCSteve123/PyEncry/releases/tag/Release1.2)<br>
 [Release1.2.1版本](https://github.com/MCSteve123/PyEncry/releases/tag/Release1.2.1)
+### 附注
+从Release1.3开始，不提供任何.exe文件，直到能够保证Pyinstaller不抽风为止<br>
+在此之前要求拥有Python环境者才可使用<br>
+依赖库安装请在cmd或powershell使用此命令：`pip install <依赖库名称>`
 <br>
 <br>
 
@@ -62,7 +72,7 @@ A:<br>
 这有3种可能：
 1. 密钥验证失效，请重新索要密钥或检查对方工具是否低于v1.2、模块库低于v1.1:<br>
 这是因为对方的密钥不完整（说了点按钮复制密钥，非不听）或版本过低导致的<br><br>
-2. 密钥已损坏，请重新索要密钥:<br>
+2. 密钥已损坏，请重新索要:<br>
 这是因为密钥被修改或漏输入导致的，当然也有可能是你当时的剪贴板里存的不是密钥<br><br>
 3. 双方\[工具/模块库\]版本不同:<br>
 这是因为双方版本不同导致的，需要更新版本<br>
@@ -81,6 +91,6 @@ A:<br>
 beta版本更新内容多，snapshot版本更新内容少。（就这点区别，别问我为啥，实在是没啥区别了...）
 
 ## 关于作者
-[B站主页](https://space.bilibili.com/1098123879)<br>
-[GitHub主页](https://github.com/MCSteve123)<br>
-[GitHub仓库](https://github.com/MCSteve123/PyEncry)
+[B站主页-根号谈](https://space.bilibili.com/1098123879)<br>
+[GitHub主页-MCSteve123](https://github.com/MCSteve123)<br>
+[GitHub仓库-PyEncry](https://github.com/MCSteve123/PyEncry)
