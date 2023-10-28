@@ -1,7 +1,9 @@
-#无用的文件
+#    无用的文件:
 
 # cpython字节流
 __pycache__/
+# 测试文件
+test*.py
 # pyinstaller文件
 build/
 dist/
