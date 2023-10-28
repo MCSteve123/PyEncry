@@ -1,12 +1,13 @@
 """PyEncry的函数
-   版本：v1.3.1
+   版本：v1.4
 
    对应程序：main.py"""
 
+from hashlib import sha256 as sha
 
-module_version = '1.3.1'
+MODULE_VER = '1.4'
 
-def encry(plaintext, key):  # 加密函数
+def encry(plaintext: str, key: int) -> str:  # 加密函数
     """加密字符串"""
     if plaintext == '':
         return ''
@@ -20,25 +21,41 @@ def encry(plaintext, key):  # 加密函数
         a += b
 
     """乘以随机密钥"""
-    ciphertext = str(int(a) * key)
+    a = str(int(a) * key)
+
+    """倒置字符"""
+    ciphertext = ''
+    for i in a:
+        ciphertext = i + ciphertext
 
     """返回密文"""
     return ciphertext
 
-def decry(ciphertext, key):  # 解密函数
+def decry(ciphertext: str, key: int) -> str:  # 解密函数
     """解密字符串"""
     if ciphertext == '':
         return ''
     
+    """倒置字符"""
+    a = ''
+    for i in ciphertext:
+        a = i + a
+    
     """除以密钥"""
-    ciphertext = str(int(ciphertext) // key)
-    for i in range(7 - len(ciphertext) % 7):
-        ciphertext = '0' + ciphertext
+    a = str(int(a) // key)
+    for i in range(7 - len(a) % 7):
+        a = '0' + a
 
     """调换顺序"""
     plaintext = ''
-    for i in range(0, len(ciphertext), 7):
-        plaintext += chr(int(ciphertext[i:i+7]))
+    for i in range(0, len(a), 7):
+        plaintext += chr(int(a[i:i+7]))
 
     """返回明文"""
     return plaintext
+
+def sha256(text: str) -> str:
+    sh = sha()
+    sh.update(text.encode())
+
+    return sh.hexdigest()
