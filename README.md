@@ -1,7 +1,7 @@
 # Py加密工具（PyEncry）
 ## 介绍
 此工具是一个可以加密文本的Python程序，使用一个8位数字作为密钥。 <br>
-~此工具基本不打算继续更新了~ <br>
+此工具会持续更新。（虽然可能几个月不更） <br>
 <br>
 （众求一个较快速的Python质数筛选器，这对以后的开发很有用，如果有的话请在issues里反馈一下！）
 
@@ -33,23 +33,12 @@ _如果显示了“警告”，请看此处：[为什么点击解密按钮会产
 （注意！工具和模块库版本号不一定相同，具体请看“适配说明”）
 
 ### 主程序
-#### 2023.10.14（v1.6）【适配模块库v1.4】
+#### 2023.10.14（v1.6）【适配模块库v1.4, v1.5】
 1. 查明了上一个版本的`hash()`函数问题，替换为sha256加密
 
 ### 模块库
-#### 2023.10.14（v1.4）【适配工具v1.6】
-1. 完成了utf-8测试
-2. 添加了原先被移除的密文倒置
-3. 添加了sha256加密函数，名为`sha256()`。<br>
-    定义：
-    ```python
-    from hashlib import sha256 as sha
-
-    def sha256(text: str) -> str:
-        sh = sha()
-        sh.update(text.encode())
-        return sh.hexdigest()
-    ```
+#### 2023.10.14（v1.5）【适配工具v1.6】
+1. 在[这里](https://github.com/MCSteve123/PyEncry-API)开源了
 
 ## 历史版本
 [所有版本列表](https://github.com/MCSteve123/PyEncry/releases)<br>
@@ -57,7 +46,8 @@ _如果显示了“警告”，请看此处：[为什么点击解密按钮会产
 [Release1.0版本](https://github.com/MCSteve123/PyEncry/releases/tag/Release1.0)<br>
 [Release1.1版本](https://github.com/MCSteve123/PyEncry/releases/tag/Release1.1)<br>
 [Release1.2版本](https://github.com/MCSteve123/PyEncry/releases/tag/Release1.2)<br>
-[Release1.2.1版本](https://github.com/MCSteve123/PyEncry/releases/tag/Release1.2.1)
+[Release1.2.1版本](https://github.com/MCSteve123/PyEncry/releases/tag/Release1.2.1)<br>
+[ReLease1.3版本](https://github.com/MCSteve123/PyEncry/releases/tag/Release1.3)
 ### 附注
 从Release1.3开始，不提供任何.exe文件，直到能够保证Pyinstaller不抽风为止<br>
 在此之前要求拥有Python环境者才可使用<br>
